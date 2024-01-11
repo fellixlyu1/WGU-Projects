@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<category>
+	    <pattern>Hi</pattern>
+	    <template>Hello, please enter "start" to begin</template>
+	</category>
+	
+	<category>
+	    <pattern>start</pattern>
+	    <template>Great! Let's get started. What is your name? ("My name is...")</template>
+	</category>
+	
+	<category>
+	    <pattern>My name is *</pattern>
+	    <template>
+	        <think>
+	            <set name="name"><star index="1"/></set>
+	        </think>
+	        <image>https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/1024px/1f44b.png</image>
+	        Nice to meet you, <get name="name"/>, are you looking for career advice?
+        </template>
+	</category>
+	
+	<category>
+	    <pattern>* name * *</pattern>
+	    <template>
+	        <think>
+	            <set name="name"><star index="3"/></set>
+	        </think>
+	        <image>https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/1024px/1f44b.png</image>
+	        Nice to meet you, <get name="name"/>, are you looking for career advice?
+        </template>
+	</category>
+	
+	<category>
+	    <pattern>Yes</pattern>
+	    <template>
+	        Are you a Computer Science or Non-Computer Science major?
+	        <button>
+	            <text>Computer Science</text>
+	            <postback>CS</postback>
+	        </button>
+	        <button>
+	            <text>Non-Computer Science</text>
+	            <postback>NCS</postback>
+	        </button>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>Yes *</pattern>
+	    <template>
+	        Are you a Computer Science or Non-Computer Science major?
+	        <button>
+	            <text>Computer Science</text>
+	            <postback>CS</postback>
+	        </button>
+	        <button>
+	            <text>Non-Computer Science</text>
+	            <postback>NCS</postback>
+	        </button>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>CS</pattern>
+	    <template>
+	        Are you more interested in Programming or in Designing?
+	        <button>
+	            <text>Programming</text>
+	            <postback>PRO</postback>
+	        </button>
+	        <button>
+	            <text>Designing</text>
+	            <postback>DES</postback>
+	        </button>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>PRO</pattern>
+	    <template>
+	        Which of these programming fields sound most appealing?
+	        <carousel>
+	            <card>
+	                <title>Web Development</title>
+                    <image>https://activebusinessgrowth.ca/wp-content/uploads/website-types.png</image>
+                    <button>
+                        <text>Learn More</text>
+                        <url>https://www.thinkful.com/blog/web-development-career-path/</url>
+                    </button>
+	            </card>
+	            <card>
+	                <title>Data Science</title>
+                    <image>https://www.prospecta.com/wp-content/uploads/2022/07/What-are-the-8-data-quality-criteria-you-shouldnt-miss-1240x648.jpg</image>
+                    <button>
+                        <text>Learn More</text>
+                        <url>https://www.theforage.com/blog/careers/data-scientist-career-path</url>
+                    </button>
+	            </card>
+	            <card>
+                    <title>Mobile Development</title>
+                    <image>https://images.theengineeringprojects.com/image/webp/2017/10/Mobile-Apps-for-Engineers.png.webp?ssl=1</image>
+                    <button>
+                        <text>Learn More</text>
+                        <url>https://www.nobledesktop.com/careers/mobile-developer</url>
+                    </button>
+                </card>
+	        </carousel>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>NCS</pattern>
+	    <template>
+	        This chatbot only provides career advice for Computer Science majors, are you still interested?
+	        <button>
+	            <text>Yes</text>
+	            <postback>CS</postback>
+	        </button>
+	        <button>
+	            <text>No</text>
+	            <postback>NR</postback>
+	        </button>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>NR</pattern>
+	    <template>Please feel free to ask us for advice if you're thinking about a CS career path.</template>
+	</category>
+	
+	<category>
+	    <pattern>DES</pattern>
+	    <template>
+	        Which of these designing fields sound most appealing?
+	        <carousel>
+	            <card>
+	                <title>UX Design</title>
+	                <image>https://www.ltts.com/sites/default/files/styles/ltts_blog_image/public/blogs/2019-08/UIUX%20blog%20banner_600x315.jpg?itok=AfgFhrRZ</image>
+	                <button>
+	                    <text>Learn More</text>
+	                    <url>https://careerfoundry.com/en/blog/ux-design/what-does-a-ux-designer-actually-do/</url>
+	                </button>
+	            </card>
+	            <card>
+	                <title>Graphic Design</title>
+	                <image>https://lili.co/wp-content/uploads/2022/03/Graphic-Design-Business.jpg</image>
+	                <button>
+	                    <text>Learn More</text>
+	                    <url>https://www.forbes.com/advisor/education/graphic-design-careers/</url>
+	                </button>
+	            </card>
+	        </carousel>
+	    </template>
+	</category>
+	
+	<category>
+        <pattern>*</pattern>
+        <template>I don't know what that is. Please enter "start" to begin</template>
+    </category>
+    
+    <category>
+        <pattern>bye</pattern>
+        <template>Bye! I wish you well on your career.</template>
+    </category>
+	
+</aiml>
